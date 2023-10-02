@@ -186,11 +186,11 @@
 
         // home_img
         .home_img{
-            margin-top: -7%;
+            margin-top: -6%;
             width: 80%;
             height: 80vh;
             @include display;
-            margin-left: 2rem;
+            margin-left: 3rem;
             img{
                 height: 100%;
                 width: 100%;
@@ -202,7 +202,7 @@
         .home_specs{
             @include display;
             flex-direction: column;
-            max-height: 30vh;
+            height: 30vh;
            padding: 3rem  0%;
 
             .specs{
@@ -313,3 +313,100 @@ box-shadow:  5px 5px 5px #5a5a5a,
             }
         }
     }
+
+
+    // expensepage
+
+    .expensepage{
+        background-color: $bg-cl1;
+        margin-top: 3rem;
+        padding:1rem 4rem;
+        height: 70vh;
+        text-align: center;
+        
+        .expenseform{
+            margin-top: 4rem;
+            height: 55vh;
+            width: 60%;
+            margin: 0 auto;
+            display: grid;
+            // place-items: center;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(5,1fr);
+            // text-align: center;
+            column-gap: 4rem;
+
+            .product{
+               @include display;
+            }
+        }
+        
+        h1{
+            // margin: 0 auto;
+            grid-column: 1/-1;
+        }
+        input,button{
+            width: 45%;
+            height: 1.6rem;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+            border: none;
+            outline: none;
+        }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button{
+            display: none;
+        }
+        label{
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        button{
+            grid-column: 1/-1;
+    margin: 0% auto;
+    height: 2.8rem;
+    cursor: pointer;
+    margin-top: 2rem;
+        }
+    }
+
+    // expenseCard
+    .cardpage{
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        text-align: center;
+        row-gap: 2rem;
+    .expenseCard{
+        height: 21rem;
+        width: 14rem;
+        border-radius: 16px;
+background: linear-gradient(145deg, #cacaca, #f0f0f0);
+box-shadow:  5px 5px 6px #a8a8a8,
+             -5px -5px 6px #ffffff;
+             text-align:center;
+             display: flex;
+             flex-direction: column;
+             justify-content: flex-end;
+             align-items: center;
+             padding: 0.5rem;
+             overflow: hidden;
+             position: relative;
+             h2,h3,h4,p{
+                margin-bottom: 0%;
+             }
+
+             button{
+                position: absolute;
+                @include btn;
+                top: 0%;
+                right: 0%;
+                left: 0%;
+                margin: auto;
+                padding: 0.7rem;
+                border-radius: 0.9rem 0.9rem 0 0;
+                cursor: auto;
+                // transform: rotate(20deg);
+             }
+    }
+}

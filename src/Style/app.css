@@ -171,13 +171,13 @@ body::-webkit-scrollbar {
   margin: auto 0.1rem;
 }
 .home_page .home_img {
-  margin-top: -7%;
+  margin-top: -6%;
   width: 80%;
   height: 80vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 2rem;
+  margin-left: 3rem;
 }
 .home_page .home_img img {
   height: 100%;
@@ -188,7 +188,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  max-height: 30vh;
+  height: 30vh;
   padding: 3rem 0%;
 }
 .home_page .home_specs .specs {
@@ -291,4 +291,95 @@ body::-webkit-scrollbar {
     margin-left: 14rem;
     margin-top: -0.5rem;
   }
+}
+.expensepage {
+  background-color: #186F65;
+  margin-top: 3rem;
+  padding: 1rem 4rem;
+  height: 70vh;
+  text-align: center;
+}
+.expensepage .expenseform {
+  margin-top: 4rem;
+  height: 55vh;
+  width: 60%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+}
+.expensepage .expenseform .product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.expensepage h1 {
+  grid-column: 1/-1;
+}
+.expensepage input, .expensepage button {
+  width: 45%;
+  height: 1.6rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+}
+.expensepage input[type=number]::-webkit-inner-spin-button, .expensepage input[type=number]::-webkit-outer-spin-button {
+  display: none;
+}
+.expensepage label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.expensepage button {
+  grid-column: 1/-1;
+  margin: 0% auto;
+  height: 2.8rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.cardpage {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  row-gap: 2rem;
+}
+.cardpage .expenseCard {
+  height: 21rem;
+  width: 14rem;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 5px 5px 6px #a8a8a8, -5px -5px 6px #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+.cardpage .expenseCard h2, .cardpage .expenseCard h3, .cardpage .expenseCard h4, .cardpage .expenseCard p {
+  margin-bottom: 0%;
+}
+.cardpage .expenseCard button {
+  position: absolute;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 550;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  top: 0%;
+  right: 0%;
+  left: 0%;
+  margin: auto;
+  padding: 0.7rem;
+  border-radius: 0.9rem 0.9rem 0 0;
+  cursor: auto;
 }/*# sourceMappingURL=app.css.map */

@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Prize from './components/Prize';
+import ExpenseCard from './components/ExpenseCard';
 import './Style/app.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
    <Navbar/>
    <Home/>
    <Prize/>
+    <ExpenseCard/>
 
     </>
 
