@@ -1,7 +1,27 @@
-import React from 'react'
+import React from 'react';
+// import { useLocation } from 'react-router-dom';
+import Msg from "./Msg";
 
 const Home = () => {
+
+  // const [bg,setBg]=useState();//for alert
+
+  // const location=useLocation();
+  // useEffect(()=>{
+  //   // location.state.msg
+  //   // console.log( location.state.msg);
+  //   if(location.state.msg){
+  //     setBg(location.state.msg);
+
+  //   }else{
+  //     setBg("Return To Home")
+  //   }
+  //   setTimeout(() => {
+  //     setBg( )
+  //   }, 3000);
+  // },[location])
   return (
+    <>
     <div className='home_page'>
       <div className="home_txt">
         <h1>EAT OUR GRILLED POTATO CHIPS</h1>
@@ -42,6 +62,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    <Msg />
+    </>
   )
 }
 

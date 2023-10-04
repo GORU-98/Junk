@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
   font-weight: 550;
   border-radius: 0.4rem;
   cursor: pointer;
-  background-color: #186F65;
+  background-color: #186f65;
   color: white;
   font-weight: 500;
   cursor: auto;
@@ -112,7 +112,7 @@ body::-webkit-scrollbar {
             animation: slide-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     border-radius: 23px;
     background: #e0e0e0;
-    background-color: #186F65;
+    background-color: #186f65;
     box-shadow: 5px 5px 10px #bcbcbc, -5px -5px 10px #ffffff;
   }
   @-webkit-keyframes slide-left {
@@ -135,8 +135,8 @@ body::-webkit-scrollbar {
 .home_page {
   display: grid;
   grid-template-columns: 2fr 2fr 1fr;
-  margin-top: 4rem;
-  height: 75vh;
+  margin-top: 3rem;
+  height: 80vh;
   width: 100%;
 }
 .home_page .home_txt h1 {
@@ -160,7 +160,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #186F65;
+  background-color: #186f65;
 }
 .home_page .home_txt button img {
   width: 2.5rem;
@@ -171,13 +171,11 @@ body::-webkit-scrollbar {
   margin: auto 0.1rem;
 }
 .home_page .home_img {
-  margin-top: -6%;
-  width: 80%;
-  height: 80vh;
+  width: 88%;
+  height: 77vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 3rem;
 }
 .home_page .home_img img {
   height: 100%;
@@ -222,11 +220,12 @@ body::-webkit-scrollbar {
     margin-bottom: 0rem;
   }
   .home_page .home_img {
-    width: 80%;
-    height: 100%;
+    margin-top: 3%;
+    height: 95%;
+    margin-left: 2rem;
   }
   .home_page .home_specs {
-    background-color: #186F65;
+    background-color: #186f65;
     padding: 2rem 0;
     border-radius: 2.5rem;
   }
@@ -237,7 +236,7 @@ body::-webkit-scrollbar {
   justify-content: space-between;
   align-items: center;
   height: 45vh;
-  background-color: #186F65;
+  background-color: #186f65;
   border-radius: 2.5rem 2.5rem 0px 0;
 }
 .prize_page .prize_card {
@@ -268,7 +267,7 @@ body::-webkit-scrollbar {
   border-radius: 0.4rem;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  background-color: #186F65;
+  background-color: #186f65;
 }
 
 @media screen and (max-width: 767px) {
@@ -293,7 +292,7 @@ body::-webkit-scrollbar {
   }
 }
 .expensepage {
-  background-color: #186F65;
+  background-color: #186f65;
   margin-top: 3rem;
   padding: 1rem 4rem;
   height: 70vh;
@@ -318,7 +317,8 @@ body::-webkit-scrollbar {
 .expensepage h1 {
   grid-column: 1/-1;
 }
-.expensepage input, .expensepage button {
+.expensepage input,
+.expensepage button {
   width: 45%;
   height: 1.6rem;
   padding: 0.5rem;
@@ -326,7 +326,8 @@ body::-webkit-scrollbar {
   border: none;
   outline: none;
 }
-.expensepage input[type=number]::-webkit-inner-spin-button, .expensepage input[type=number]::-webkit-outer-spin-button {
+.expensepage input[type=number]::-webkit-inner-spin-button,
+.expensepage input[type=number]::-webkit-outer-spin-button {
   display: none;
 }
 .expensepage label {
@@ -341,6 +342,19 @@ body::-webkit-scrollbar {
   margin-top: 2rem;
 }
 
+@media screen and (max-width: 767px) {
+  .expensepage {
+    background-color: #186f65;
+    margin-top: 3rem;
+    padding: 0.5rem;
+    height: 55vh;
+  }
+  .expensepage .expenseform {
+    margin-top: 4rem;
+    height: 40vh;
+    width: 95%;
+  }
+}
 .cardpage {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -353,7 +367,6 @@ body::-webkit-scrollbar {
   height: 21rem;
   width: 14rem;
   border-radius: 16px;
-  background: linear-gradient(145deg, #cacaca, #f0f0f0);
   box-shadow: 5px 5px 6px #a8a8a8, -5px -5px 6px #ffffff;
   text-align: center;
   display: flex;
@@ -361,11 +374,26 @@ body::-webkit-scrollbar {
   justify-content: flex-end;
   align-items: center;
   padding: 0.5rem;
-  overflow: hidden;
   position: relative;
+  background-image: url("../../public/pics/drink.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.cardpage .expenseCard h2, .cardpage .expenseCard h3, .cardpage .expenseCard h4, .cardpage .expenseCard p {
+.cardpage .expenseCard h2,
+.cardpage .expenseCard h3,
+.cardpage .expenseCard h4,
+.cardpage .expenseCard p {
   margin-bottom: 0%;
+  font-weight: bolder;
+}
+.cardpage .expenseCard img {
+  position: absolute;
+  top: -4%;
+  right: -7%;
+  width: 2.6rem;
+  height: 2.6rem;
+  cursor: pointer;
 }
 .cardpage .expenseCard button {
   position: absolute;
@@ -382,4 +410,68 @@ body::-webkit-scrollbar {
   padding: 0.7rem;
   border-radius: 0.9rem 0.9rem 0 0;
   cursor: auto;
+  background-color: #186f65;
+}
+
+@media screen and (max-width: 767px) {
+  .cardpage {
+    margin-top: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  .cardpage .expenseCard {
+    border-radius: 16px;
+  }
+}
+.Msg {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+.signinpage {
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../public/pics/drink.png");
+  background-position: center;
+  background-size: contain;
+}
+.signinpage .signform {
+  border: 0.1rem solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 21rem;
+  padding: 5.5rem 0;
+}
+.signinpage .signform input, .signinpage .signform h2 {
+  height: 1.4rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  outline: none;
+  margin-bottom: 1.9rem;
+}
+.signinpage .signform button {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 550;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  padding: 0.7rem 0rem;
+  width: 10rem;
+  background-color: #186f65;
+}
+.signinpage .signform h2 {
+  font-size: 1.5rem;
 }/*# sourceMappingURL=app.css.map */

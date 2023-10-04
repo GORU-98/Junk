@@ -1,412 +1,536 @@
+@import url("https://fonts.googleapis.com/css2?family=Belanosima&family=Josefin+Sans&family=Permanent+Marker&family=Varela+Round&family=Work+Sans:ital@1&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Josefin+Sans&family=Permanent+Marker&family=Varela+Round&family=Work+Sans:ital@1&display=swap');
+body {
+    margin: 0;
+    padding: 0 5%;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    scroll-behavior: smooth;
+    font-family: "Belanosima", sans-serif;
+    font-family: "Josefin Sans", sans-serif;
+    font-family: "Permanent Marker", cursive;
+    font-family: "Varela Round", sans-serif;
+    font-family: "Work Sans", sans-serif;
 
-    body{
-        margin: 0;
-        padding: 0 5%;
-        box-sizing: border-box;
-        height: 100vh ;
-        width: 100vw;
-        scroll-behavior: smooth;
-        font-family: 'Belanosima', sans-serif;
-        font-family: 'Josefin Sans', sans-serif;
-        font-family: 'Permanent Marker', cursive;
-        font-family: 'Varela Round', sans-serif;
-        font-family: 'Work Sans', sans-serif;
-        &::-webkit-scrollbar{
-            display: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+$bg-cl1: #186f65;
+
+@mixin display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin link($fs, $fw) {
+    text-decoration: none;
+    color: black;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin btn {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 550;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+@mixin menu {
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+// Nav
+
+.nav {
+    @include display;
+    height: 4rem;
+
+    .nav_title {
+        @include menu;
+    }
+
+    .srch_bar input {
+        padding: 0.7rem 1rem;
+        @include btn;
+        background-color: $bg-cl1;
+        color: white;
+        font-weight: 500;
+        cursor: auto;
+
+        &::placeholder {
+            color: white;
+            font-weight: 500;
         }
     }
-    $bg-cl1:#186F65;
+}
 
-    @mixin  display{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    @mixin link($fs,$fw) {
-        text-decoration: none;
-        color: black;
-        font-size: $fs;
-        font-weight: $fw;
-    }
-    @mixin btn {
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        font-weight: 550;
-        border-radius: 0.4rem;
-        cursor: pointer;
+.nav_ul ul {
+    @include display;
+    gap: 2.5rem;
+
+    li {
+        list-style: none;
     }
 
-    @mixin menu {
-        font-size: 1.5rem;
-                font-weight: 800;
-                cursor: pointer
-        
+    a {
+        @include link(1.2rem, 700);
     }
-    // Nav 
+}
 
-    .nav{
+.nav_res {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 75.5%;
+    }
+
+    .nav_res {
         @include display;
         height: 4rem;
 
-        .nav_title{
-           @include menu;
-        }
+        .menu_btn {
+            height: 2.6rem;
+            width: 2.6rem;
+            position: relative;
 
-        
-
-        .srch_bar input{
-            padding: 0.7rem 1rem;
-           @include btn;
-                    background-color: $bg-cl1;
-                    color: white;
-                    font-weight: 500;
-                    cursor:auto;
-
-                    &::placeholder{
-                color: white;
-                font-weight: 500;
-
-            }
-        }
-    }
-
-    .nav_ul ul{
-        @include display;
-        gap: 2.5rem;
-        li{
-            list-style: none;
-        }
-        a{
-            @include link(1.2rem,700 )
-        }
-
-    }
-    .nav_res{
-        display: none;
-    }
-
-    @media  screen and (max-width:767px) {
-        html{
-            font-size: 75.5%;
-        }
-        .nav_res{
-            @include display;
-            height: 4rem;
-            
-            .menu_btn {
-                height: 2.6rem;
-                width: 2.6rem;
-                position:relative;
-               
-                img{
-                    height: 100%;
-                width: 100%;
-                }
-            }
-            .nav_title{
-                @include menu;
-            }
-        }
-        .nav{
-        display: none;
-        }
-        
-    .nav_ul ul{
-        padding: 1rem;
-        width: 83vw;
-        height: 20vh;
-        position: absolute;
-        top:   5%;
-        left: 18.5%;
-        flex-direction: column;
-	        animation: slide-left 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            border-radius: 23px;
-            background: #e0e0e0;
-            background-color: $bg-cl1;
-            box-shadow:  5px 5px 10px #bcbcbc,
-                         -5px -5px 10px #ffffff;
-                         
-                  
-      
-    }
-
-  @keyframes slide-left {
-    0% {
-              transform: translateX(0);
-    }
-    100% {
-              transform: translateX(-48px);
-    }
-  }
-  
-}
-    // Home
-    .home_page{
-        display: grid;
-        grid-template-columns:2fr 2fr 1fr;
-        margin-top: 4rem;
-        height: 75vh;
-        width: 100%;
-        // position: relative;
-        .home_txt{
-          
-            h1{
-                font-size: 3rem;
-                letter-spacing: -0.1rem;
-                line-height: 3.5rem;
-            }
-            h3{
-                margin-bottom: 3rem;
-            }
-            button{
-                padding: 0.5rem 0.9rem;
-                max-height: 3rem;
-                width: 14rem;
-                @include btn;
-                @include display;
-
-                background-color: $bg-cl1;
-                img{
-                    width: 2.5rem;
-                    height: 2.5rem;
-                    border-radius: 50%;
-                  
-                }
-                h3{
-                    margin: auto 0.1rem;
-
-                }
-
-            }
-        }
-
-
-        // home_img
-        .home_img{
-            margin-top: -6%;
-            width: 80%;
-            height: 80vh;
-            @include display;
-            margin-left: 3rem;
-            img{
+            img {
                 height: 100%;
                 width: 100%;
             }
         }
 
-        // home_specs
-
-        .home_specs{
-            @include display;
-            flex-direction: column;
-            height: 30vh;
-           padding: 3rem  0%;
-
-            .specs{
-                @include display;
-                gap: 1rem;
-                img{
-                    width: 3.5rem;
-                    height: 3.5rem;
-                    border-radius: 50%;
-                    cursor: pointer;
-                }
-                .specs_des{
-                    // margin-left: 0.5rem;
-                    h3{
-                        line-height: 0.1rem;
-                    }
-                    h5{
-                        font-weight: 600;
-                    }
-                }
-            }
+        .nav_title {
+            @include menu;
         }
     }
 
-    @media  screen and (max-width:767px) {
-
-        .home_page{
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(3,1fr);
-            margin-top: 1rem;
-            row-gap:1rem ;
-            // border: 0.1rem solid black;
-            // height: inherit;
-            height: 120vh;
-        
-            .home_txt{
-                margin-bottom: 0rem ;
-            }
-            .home_img{
-                // margin-top: -10%;
-                width: 80%;
-            height: 100%;
-            }
-            .home_specs{
-                // margin-top: 0%;
-                background-color: #186F65;
-                // height: 30vh;
-                padding: 2rem  0;
-                border-radius: 2.5rem ;
-               
-        }
-        }
+    .nav {
+        display: none;
     }
 
-    // prize_page
-
-    .prize_page{
-        margin-top: 4rem;
-        @include display;
-        height: 45vh;
+    .nav_ul ul {
+        padding: 1rem;
+        width: 83vw;
+        height: 20vh;
+        position: absolute;
+        top: 5%;
+        left: 18.5%;
+        flex-direction: column;
+        animation: slide-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        border-radius: 23px;
+        background: #e0e0e0;
         background-color: $bg-cl1;
-        border-radius: 2.5rem 2.5rem 0px 0;
-        .prize_card{
+        box-shadow: 5px 5px 10px #bcbcbc, -5px -5px 10px #ffffff;
+    }
+
+    @keyframes slide-left {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-48px);
+        }
+    }
+}
+
+// Home
+.home_page {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    margin-top: 3rem;
+    height: 80vh;
+    width: 100%;
+    // padding: 1rem 0;
+
+    // position: relative;
+    .home_txt {
+        // padding: 0rem 0rem;
+        h1 {
+            font-size: 3rem;
+            letter-spacing: -0.1rem;
+            line-height: 3.5rem;
+        }
+
+        h3 {
+            margin-bottom: 3rem;
+        }
+
+        button {
+            padding: 0.5rem 0.9rem;
+            max-height: 3rem;
+            width: 14rem;
+            @include btn;
             @include display;
-            width: 28%;
-            border-radius: 23px;
-background: linear-gradient(145deg, #cacaca, #f0f0f0);
-box-shadow:  5px 5px 5px #5a5a5a,
-             -5px -5px 5px #ffffff;
-             padding: 0.5rem 1rem 0.5rem 0;
-             position: relative;
-            border: none;
-             .prize_des{
-                margin-left: 12rem;
-             }
-            img{
-                height: 15rem;
-                width:  11rem;
-                position: absolute;
+
+            background-color: $bg-cl1;
+
+            img {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
             }
-            button{
-                @include btn;
-                padding: 00.5rem 1rem;
-                background-color: $bg-cl1;
+
+            h3 {
+                margin: auto 0.1rem;
             }
         }
     }
 
+    // home_img
+    .home_img {
+        // margin-top: -6%;
+        width: 88%;
+        height: 77vh;
+        @include display;
+        // margin-left: 1rem;
 
-    @media  screen and (max-width:767px) {
-        .prize_page{
-            margin-top: 3rem;
-            flex-direction: column;
-            height: inherit;
-            padding: 1rem 0;
-            .prize_card{
-                width: 95%;
-                margin-top: 2.5rem;
-                margin-bottom: 1.5rem;
-                img{
-                    height: 12.5rem;
-                    width:  9.5rem;
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    // home_specs
+    
+    .home_specs {
+        @include display;
+        flex-direction: column;
+        height: 30vh;
+        padding: 3rem 0%;
+
+        .specs {
+            @include display;
+            gap: 1rem;
+
+            img {
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .specs_des {
+
+                // margin-left: 0.5rem;
+                h3 {
+                    line-height: 0.1rem;
                 }
-                .prize_des{
-                    margin-left: 14rem;
-                    margin-top: -0.5rem;
-                 }
+
+                h5 {
+                    font-weight: 600;
+                }
             }
         }
     }
+}
 
+@media screen and (max-width: 767px) {
+    .home_page {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-top: 1rem;
+        row-gap: 1rem;
+        // border: 0.1rem solid black;
+        // height: inherit;
+        height: 120vh;
+        // overflow: hidden;
 
-    // expensepage
+        .home_txt {
+            margin-bottom: 0rem;
+        }
 
-    .expensepage{
+        .home_img {
+            margin-top: 3%;
+            // width: 88%;
+            height: 95%;
+            margin-left: 2rem;
+        }
+
+        .home_specs {
+            // margin-top: 0%;
+            background-color: #186f65;
+            // height: 30vh;
+            padding: 2rem 0;
+            border-radius: 2.5rem;
+        }
+    }
+}
+
+// prize_page
+
+.prize_page {
+    margin-top: 4rem;
+    @include display;
+    height: 45vh;
+    background-color: $bg-cl1;
+    border-radius: 2.5rem 2.5rem 0px 0;
+
+    .prize_card {
+        @include display;
+        width: 28%;
+        border-radius: 23px;
+        background: linear-gradient(145deg, #cacaca, #f0f0f0);
+        box-shadow: 5px 5px 5px #5a5a5a, -5px -5px 5px #ffffff;
+        padding: 0.5rem 1rem 0.5rem 0;
+        position: relative;
+        border: none;
+
+        .prize_des {
+            margin-left: 12rem;
+        }
+
+        img {
+            height: 15rem;
+            width: 11rem;
+            position: absolute;
+        }
+
+        button {
+            @include btn;
+            padding: 00.5rem 1rem;
+            background-color: $bg-cl1;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .prize_page {
+        margin-top: 3rem;
+        flex-direction: column;
+        height: inherit;
+        padding: 1rem 0;
+
+        .prize_card {
+            width: 95%;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+
+            img {
+                height: 12.5rem;
+                width: 9.5rem;
+            }
+
+            .prize_des {
+                margin-left: 14rem;
+                margin-top: -0.5rem;
+            }
+        }
+    }
+}
+
+// expensepage
+
+.expensepage {
+    background-color: $bg-cl1;
+    margin-top: 3rem;
+    padding: 1rem 4rem;
+    height: 70vh;
+    text-align: center;
+
+    .expenseform {
+        margin-top: 4rem;
+        height: 55vh;
+        width: 60%;
+        margin: 0 auto;
+        display: grid;
+        // place-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        // text-align: center;
+        column-gap: 4rem;
+
+        .product {
+            @include display;
+        }
+    }
+
+    h1 {
+        // margin: 0 auto;
+        grid-column: 1/-1;
+    }
+
+    input,
+    button {
+        width: 45%;
+        height: 1.6rem;
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        display: none;
+    }
+
+    label {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    button {
+        grid-column: 1/-1;
+        margin: 0% auto;
+        height: 2.8rem;
+        cursor: pointer;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .expensepage {
         background-color: $bg-cl1;
         margin-top: 3rem;
-        padding:1rem 4rem;
-        height: 70vh;
-        text-align: center;
-        
-        .expenseform{
-            margin-top: 4rem;
-            height: 55vh;
-            width: 60%;
-            margin: 0 auto;
-            display: grid;
-            // place-items: center;
-            grid-template-columns: repeat(1,1fr);
-            grid-template-rows: repeat(5,1fr);
-            // text-align: center;
-            column-gap: 4rem;
+        padding: 0.5rem;
+        height: 55vh;
 
-            .product{
-               @include display;
-            }
-        }
-        
-        h1{
-            // margin: 0 auto;
-            grid-column: 1/-1;
-        }
-        input,button{
-            width: 45%;
-            height: 1.6rem;
-            padding: 0.5rem;
-            font-size: 1.1rem;
-            border: none;
-            outline: none;
-        }
-        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button{
-            display: none;
-        }
-        label{
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-        button{
-            grid-column: 1/-1;
-    margin: 0% auto;
-    height: 2.8rem;
-    cursor: pointer;
-    margin-top: 2rem;
+        .expenseform {
+            margin-top: 4rem;
+            height: 40vh;
+            width: 95%;
         }
     }
+}
 
-    // expenseCard
-    .cardpage{
-        margin-top: 4rem;
-        margin-bottom: 4rem;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        text-align: center;
-        row-gap: 2rem;
-    .expenseCard{
+// expenseCard
+.cardpage {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    row-gap: 2rem;
+
+    .expenseCard {
         height: 21rem;
         width: 14rem;
         border-radius: 16px;
-background: linear-gradient(145deg, #cacaca, #f0f0f0);
-box-shadow:  5px 5px 6px #a8a8a8,
-             -5px -5px 6px #ffffff;
-             text-align:center;
-             display: flex;
-             flex-direction: column;
-             justify-content: flex-end;
-             align-items: center;
-             padding: 0.5rem;
-             overflow: hidden;
-             position: relative;
-             h2,h3,h4,p{
-                margin-bottom: 0%;
-             }
+        // background: linear-gradient(145deg, #cacaca, #f0f0f0);
+        box-shadow: 5px 5px 6px #a8a8a8, -5px -5px 6px #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0.5rem;
+        //  overflow: hidden;
+        position: relative;
+        background-image: url("../../public/pics/drink.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
 
-             button{
-                position: absolute;
-                @include btn;
-                top: 0%;
-                right: 0%;
-                left: 0%;
-                margin: auto;
-                padding: 0.7rem;
-                border-radius: 0.9rem 0.9rem 0 0;
-                cursor: auto;
-                // transform: rotate(20deg);
-             }
+        h2,
+        h3,
+        h4,
+        p {
+            margin-bottom: 0%;
+            font-weight: bolder;
+        }
+
+        img {
+            position: absolute;
+            top: -4%;
+            right: -7%;
+            width: 2.6rem;
+            height: 2.6rem;
+            cursor: pointer;
+        }
+
+        button {
+            position: absolute;
+            @include btn;
+            top: 0%;
+            right: 0%;
+            left: 0%;
+            margin: auto;
+            padding: 0.7rem;
+            border-radius: 0.9rem 0.9rem 0 0;
+            cursor: auto;
+            background-color: $bg-cl1;
+            // transform: rotate(20deg);
+        }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .cardpage {
+        margin-top: 3rem;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1rem;
+        column-gap: 1rem;
+
+        .expenseCard {
+            // width: 12rem;
+            // height:19rem;
+            border-radius: 16px;
+        }
+    }
+}
+
+// Msg
+.Msg {
+    width: 100%;
+    // height: 3.2rem;
+    text-align: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    // background-color: $bg-cl1;
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    // animation: zxx 3s alternate ease ;
+}
+
+// signinpage
+
+        .signinpage{
+            width: 90vw;
+            height: 100vh;
+            @include display;
+            justify-content: center;
+            background-image: url("../../public/pics/drink.png");
+            background-position: center;
+            background-size: contain;
+
+            .signform{
+                border: 00.1rem solid black;
+                @include display;
+                flex-direction: column;
+                width:21rem ;
+                // height: 80%;
+                padding: 5.5rem 0;
+
+                input,h2{
+                    height: 1.4rem;
+                    padding: 0.5rem;
+                    font-size: 1.1rem;
+                    // border: none;
+                    outline: none;
+                    margin-bottom: 1.9rem;
+                    // border-bottom: 00.1rem solid black;
+                    // border-left: 00.1rem solid black;
+                }
+                button{
+                    @include btn;
+                    padding: 0.7rem 0rem;
+                    width:10rem ;
+                    background-color: $bg-cl1;
+                }
+                h2{
+                    font-size:1.5rem ;
+                }
+            }
+        }
