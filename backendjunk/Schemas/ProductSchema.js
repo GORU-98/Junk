@@ -1,6 +1,11 @@
 const mongoose= require("mongoose");
 
 const ProductSchema= new mongoose.Schema({
+
+user:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"UserModel"
+},
 product:{
     type:String,
 },
@@ -13,6 +18,11 @@ prize:{
 location:{
     type:String,
 },
+date:{
+    type:Date,
+    default:Date.now
+},
+
 })
 
 const Productmodal= new mongoose.model("Productmodal",ProductSchema);

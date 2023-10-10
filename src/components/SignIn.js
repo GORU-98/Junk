@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import Msg from "./Msg";
+import Msg from "./Msg";
 import {useNavigate} from "react-router-dom";
 const SignIn = () => {
 const [val,setVal] = useState({
@@ -8,7 +8,7 @@ const [val,setVal] = useState({
   password:"",
   cpassword:"",
 });
-// const [bg,setBg]=useState();//for alert
+const [bg,setBg]=useState();//for alert
 const navigate=useNavigate();
 
 const handleSign=async()=>{
@@ -21,6 +21,14 @@ const handleSign=async()=>{
     body:JSON.stringify({...val})
   })
   const response=await User.json();
+  // console.log(response.authtoken)
+  if(!response.authtoken){
+    setBg("Sign In Failed!");
+    setTimeout(() => {
+      setBg("")
+    }, 3000);
+  }
+  localStorage.setItem("token",response.authtoken);
   setVal({
     name:"",
   email:"",
@@ -54,7 +62,7 @@ const handleSign=async()=>{
 
         </div>
     </div>
-    {/* <Msg msg={bg}/> */}
+    <Msg msg={bg}/>
 
     </>
   )

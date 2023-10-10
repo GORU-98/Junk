@@ -35,10 +35,12 @@ const ExpenseCard = () => {
 
   const handlecard = async (e) => {
     e.preventDefault();
+    const token=localStorage.getItem("token");
     const savecard = await fetch(`${host}/item`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "authtoken":`${token}`
       },
       body: JSON.stringify({ ...txt }),
     });
@@ -58,10 +60,12 @@ const ExpenseCard = () => {
   };
 
   const fetchcard = async () => {
+    const token=localStorage.getItem("token");
     const allcard1 = await fetch(`${host}/get`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "authtoken":`${token}`
       },
     });
     const result = await allcard1.json();
@@ -71,10 +75,12 @@ const ExpenseCard = () => {
   };
 
   const handleDlt=async(id)=>{
+    const token=localStorage.getItem("token");
     const res=await fetch(`${host}/delete/${id}`,{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "authtoken":`${token}`
       },
     })
     const response=await res.json();

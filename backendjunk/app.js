@@ -3,18 +3,27 @@ const mongoose= require("mongoose");
 require("./Schemas/Server");
 const Productmodal = require("./Schemas/ProductSchema");
 const UserModel = require("./Schemas/UserSchema");
+const jwt=require("jsonwebtoken");
+const fetchuser=require("./middleware/fetchuser")
 const app=express();
 app.use(express.json());
 const port=5000;
 const cors=require("cors");
+// const { useAsyncError } = require("react-router-dom");
 app.use(cors());
-app.post("/item",async(req,res)=>{
+
+const JWT_SEC="whenevericallyoudonotcomehere"
+
+// To add a single card
+app.post("/item",fetchuser,async(req,res)=>{
     try {
-        
-        const card= await new Productmodal(req.body);
+        const userId=req.client.id;
+        const {product,category,prize,location}=req.body;
+        const card= await new Productmodal({product,category,prize,location,user:req.client.id}
+            );
         const result= await card.save();
         if(result){
-            const allcards=await Productmodal.find();
+            const allcards=await Productmodal.find({user:userId});
             res.send({allcards,message:"Card Added Successfully"});
         }
     } catch (error) {
@@ -22,19 +31,31 @@ app.post("/item",async(req,res)=>{
     }
 })
 
-app.get("/get",async(req,res)=>{
-    const allcards=await Productmodal.find();
+// To fetch all cards
+
+app.get("/get",fetchuser,async(req,res)=>{
+    const userId=req.client.id;
+    const allcards=await Productmodal.find({user:userId});
     res.send({allcards});
+    // console.log(userId)
 })
-app.delete("/delete/:id",async(req,res)=>{
+
+// To delete cards
+
+app.delete("/delete/:id",fetchuser,async(req,res)=>{
     try {
         const getcard=await Productmodal.findById(req.params.id);
+        // console.log(getcard.user.toString());
         if(!getcard){
-           throw new Error
+            res.json("Not allowed");
+        }
+        const userId=req.client.id;
+        if(!getcard.user.toString()==userId){
+            throw new Error
         }
         const allcard=await Productmodal.findByIdAndDelete(req.params.id);
-        const allcards=await Productmodal.find();
-        res.send({allcards,message:"Card Deleted Successfully"});
+        const allcards=await Productmodal.find({user:userId});
+        res.status(201).send({allcards,message:"Card Deleted Successfully"});
         
     } catch (error) {
         res.send(error)
@@ -45,6 +66,7 @@ app.delete("/delete/:id",async(req,res)=>{
 // Sign In
 
     app.post("/signin",async(req,res)=>{
+
         try {
             
             let isUser= await UserModel.findOne({email:req.body.email});
@@ -67,9 +89,17 @@ app.delete("/delete/:id",async(req,res)=>{
                 cpassword:cPassword,
     
             })
+
+            const data={
+                client:{
+                    id:isUser.id
+                }
+            }
+            // console.log(data);
+            const authtoken= jwt.sign(data,JWT_SEC);
     
-            const yupUser= await isUser.save();
-            res.status(200).send({msg:"Signed in Successfully",status:200});
+            const okUser= await isUser.save();
+            res.status(200).send({msg:"Signed in Successfully",status:200,authtoken});
         } catch (error) {
             res.status(404).send(error);
 
@@ -77,6 +107,17 @@ app.delete("/delete/:id",async(req,res)=>{
        
 
     })
+
+// To fetch the user
+
+app.get("/getuser",fetchuser,async(req,res)=>{
+    const userId=req.client.id;
+    const isUser=await UserModel.findById(userId).select(["-password","-cpassword"]);
+    if(!isUser){
+        throw new Error
+    }
+    res.send(isUser);
+})
 
 app.listen(port,()=>{
     console.log(`Backend is running on port:${port}`);
