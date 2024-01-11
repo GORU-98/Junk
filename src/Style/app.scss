@@ -43,7 +43,7 @@ $bg-cl1: #186f65;
 }
 
 @mixin menu {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 800;
     cursor: pointer;
 }
@@ -57,14 +57,20 @@ $bg-cl1: #186f65;
     .nav_title {
         @include menu;
     }
-
+button{
+    @include btn();
+    padding: 0.6rem 0;
+    width:10rem ;
+    background-color: $bg-cl1;
+}
     .srch_bar input {
-        padding: 0.7rem 1rem;
+        padding: 0.6rem 0.5rem;
         @include btn;
         background-color: $bg-cl1;
         color: white;
         font-weight: 500;
         cursor: auto;
+        margin-left: 1rem ;
 
         &::placeholder {
             color: white;
@@ -495,42 +501,103 @@ $bg-cl1: #186f65;
 }
 
 // signinpage
+@mixin signin {
+    width: 90vw;
+    height: 100vh;
+    @include display;
+    justify-content: center;
+    background-image: url("../../public/pics/drink.png");
+    background-position: center;
+    background-size: contain;
+}
+@mixin  signform{
+    border: 00.1rem solid black;
+    @include display;
+    flex-direction: column;
+    width:21rem ;
+    // height: 80%;
+    padding: 3.5rem 0;
+}
+@mixin  input{
+    height: 1.4rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    // border: none;
+    outline: none;
+    margin-bottom: 1.9rem;
+    // border-bottom: 00.1rem solid black;
+    // border-left: 00.1rem solid black;
+}
+@mixin btn1 {
+    @include btn;
+   
+    padding: 0.7rem 0rem;
+    width:10rem ;
+    background-color: $bg-cl1;
+}
 
         .signinpage{
-            width: 90vw;
-            height: 100vh;
-            @include display;
-            justify-content: center;
-            background-image: url("../../public/pics/drink.png");
-            background-position: center;
-            background-size: contain;
-
-            .signform{
-                border: 00.1rem solid black;
-                @include display;
-                flex-direction: column;
-                width:21rem ;
-                // height: 80%;
-                padding: 5.5rem 0;
+           @include signin;
+           
+           .signform{
+                @include signform();
+               
 
                 input,h2{
-                    height: 1.4rem;
-                    padding: 0.5rem;
-                    font-size: 1.1rem;
-                    // border: none;
-                    outline: none;
-                    margin-bottom: 1.9rem;
-                    // border-bottom: 00.1rem solid black;
-                    // border-left: 00.1rem solid black;
+                 @include input();
                 }
                 button{
-                    @include btn;
-                    padding: 0.7rem 0rem;
-                    width:10rem ;
-                    background-color: $bg-cl1;
+                   @include btn1();
+                   margin-bottom: 1.5rem;
                 }
                 h2{
                     font-size:1.5rem ;
                 }
+                a{
+                    color: $bg-cl1;
+                    font-weight: 800;
+                    text-decoration: underline;
+                    // font-size:1.1rem ;
+                    cursor: pointer;
+                }
+                span{
+                    font-weight: 700;
+                    margin-bottom:0.5rem ;
+                 }
             }
+        }
+
+        .signuppage{
+            @include signin;
+            .signform{
+                @include signform();
+                // height: 60vh;
+//                 border-radius: 50px;
+// background: #2aa760;
+// box-shadow:  20px 20px 60px #248e52,
+//              -20px -20px 60px #30c06e;
+            
+            input,h2{
+                @include input();
+               }
+               button{
+                @include btn1();
+                margin-bottom: 1.5rem;
+             }
+             span{
+                font-weight: 700;
+                margin-bottom:0.5rem ;
+             }
+             a{
+                color: $bg-cl1;
+                font-weight: 800;
+                text-decoration: underline;
+                // font-size:1.1rem ;
+                cursor: pointer;
+            }
+             h2{
+                 font-size:1.5rem ;
+             }
+            }
+
         }

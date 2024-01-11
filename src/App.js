@@ -3,6 +3,7 @@ import Home from './components/Home';
 // import Prize from './components/Prize';
 import ExpenseCard from './components/ExpenseCard';
 import SignIn from './components/SignIn';
+import Signup from './components/Signup';
 import './Style/app.css';
 import {
   BrowserRouter,
@@ -16,6 +17,7 @@ function App() {
 
 <Routes>
     <Route path='/signin' element={  <SignIn/>}/>
+    <Route path='/signup' element={  <Signup/>}/>
    
   <Route path='/' element={<Navbar/>}>
     <Route index element={<Home/>}/>

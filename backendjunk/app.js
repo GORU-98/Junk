@@ -7,7 +7,7 @@ const jwt=require("jsonwebtoken");
 const fetchuser=require("./middleware/fetchuser")
 const app=express();
 app.use(express.json());
-const port=5000;
+const port=process.env.PORT || 5000;
 const cors=require("cors");
 // const { useAsyncError } = require("react-router-dom");
 app.use(cors());
@@ -107,6 +107,36 @@ app.delete("/delete/:id",fetchuser,async(req,res)=>{
        
 
     })
+
+    app.post("/signup",async(req,res)=>{
+
+        try {
+            
+            let isUser= await UserModel.findOne({email:req.body.email});
+            if(!isUser){
+                // res.status(404).send("SignIn with valid credentials");
+                throw new Error;
+            }
+            if(req.body.password==isUser.password){
+                const data={
+                    client:{
+                        id:isUser.id
+                    }
+                }
+                // console.log(data);
+                const authtoken= jwt.sign(data,JWT_SEC);
+                res.status(200).send({msg:"Signed up Successfully",status:200,authtoken});
+            }else{
+
+                throw new Error;
+            }
+
+
+        }catch (error) {
+            res.status(404).send(error);
+
+        }
+    });
 
 // To fetch the user
 

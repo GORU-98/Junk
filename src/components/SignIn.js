@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Msg from "./Msg";
 import {useNavigate} from "react-router-dom";
+
 const SignIn = () => {
+
 const [val,setVal] = useState({
   name:"",
   email:"",
@@ -43,6 +45,8 @@ const handleSign=async()=>{
 
 }
 
+    
+
     const handleChange=(e)=>{
       e.preventDefault();
      setVal( {...val,[e.target.name]:e.target.value});
@@ -59,9 +63,13 @@ const handleSign=async()=>{
             <input type="password" name="cpassword" id="cpassword"  value={val.cpassword}  onChange={handleChange} required placeholder='Confirm Password'/>
             <button onClick={handleSign} disabled={val.name.length<3 ||val.email.length<4 || val.password.length<2 ||val.cpassword.length<2}>Sign In</button>
 
+            <span>If already account exists, Sign Up here</span>
+            <a href='/signup' >Sign Up</a>
+
 
         </div>
     </div>
+    
     <Msg msg={bg}/>
 
     </>

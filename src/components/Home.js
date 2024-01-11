@@ -1,4 +1,5 @@
-import React from 'react';
+import React ,{useEffect}from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 import Msg from "./Msg";
 
@@ -6,20 +7,24 @@ const Home = () => {
 
   // const [bg,setBg]=useState();//for alert
 
-  // const location=useLocation();
-  // useEffect(()=>{
-  //   // location.state.msg
-  //   // console.log( location.state.msg);
-  //   if(location.state.msg){
-  //     setBg(location.state.msg);
+  const navigate=useNavigate();
+  useEffect(()=>{
+    // location.state.msg
+    // console.log( location.state.msg);
+    // if(location.state.msg){
+    //   setBg(location.state.msg);
 
-  //   }else{
-  //     setBg("Return To Home")
-  //   }
-  //   setTimeout(() => {
-  //     setBg( )
-  //   }, 3000);
-  // },[location])
+    // }else{
+    //   setBg("Return To Home")
+    // }
+    // setTimeout(() => {
+    //   setBg( )
+    // }, 3000);
+      const token=localStorage.getItem("token");
+      if(!token){
+        navigate("/signin");
+      }
+  },[navigate])
   return (
     <>
     <div className='home_page'>

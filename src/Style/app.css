@@ -23,12 +23,23 @@ body::-webkit-scrollbar {
   height: 4rem;
 }
 .nav .nav_title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 800;
   cursor: pointer;
 }
+.nav button {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 550;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  width: 10rem;
+  background-color: #186f65;
+}
 .nav .srch_bar input {
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.5rem;
   border: none;
   outline: none;
   font-size: 1rem;
@@ -39,6 +50,7 @@ body::-webkit-scrollbar {
   color: white;
   font-weight: 500;
   cursor: auto;
+  margin-left: 1rem;
 }
 .nav .srch_bar input::-moz-placeholder {
   color: white;
@@ -93,7 +105,7 @@ body::-webkit-scrollbar {
     width: 100%;
   }
   .nav_res .nav_title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 800;
     cursor: pointer;
   }
@@ -452,7 +464,7 @@ body::-webkit-scrollbar {
   align-items: center;
   flex-direction: column;
   width: 21rem;
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
 }
 .signinpage .signform input, .signinpage .signform h2 {
   height: 1.4rem;
@@ -471,7 +483,71 @@ body::-webkit-scrollbar {
   padding: 0.7rem 0rem;
   width: 10rem;
   background-color: #186f65;
+  margin-bottom: 1.5rem;
 }
 .signinpage .signform h2 {
+  font-size: 1.5rem;
+}
+.signinpage .signform a {
+  color: #186f65;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.signinpage .signform span {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.signuppage {
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../public/pics/drink.png");
+  background-position: center;
+  background-size: contain;
+}
+.signuppage .signform {
+  border: 0.1rem solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 21rem;
+  padding: 3.5rem 0;
+}
+.signuppage .signform input, .signuppage .signform h2 {
+  height: 1.4rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  outline: none;
+  margin-bottom: 1.9rem;
+}
+.signuppage .signform button {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 550;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  padding: 0.7rem 0rem;
+  width: 10rem;
+  background-color: #186f65;
+  margin-bottom: 1.5rem;
+}
+.signuppage .signform span {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.signuppage .signform a {
+  color: #186f65;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.signuppage .signform h2 {
   font-size: 1.5rem;
 }/*# sourceMappingURL=app.css.map */
